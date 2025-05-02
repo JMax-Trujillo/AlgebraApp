@@ -1,3 +1,7 @@
+# Rama de Jean Max
+
+    Intentare probar cositas, practicamente estoy aprendiendo, bueno, sigan en lo suyo :D
+
 ## Paleta de Colores del fondo
 
 palette = {
