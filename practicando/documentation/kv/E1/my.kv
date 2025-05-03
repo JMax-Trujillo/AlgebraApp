@@ -1,0 +1,17 @@
+<MiInterfaz>:
+    orientation: "vertical"
+    padding: 20
+    spacing: 10
+
+    TextInput:
+        id: caja_texto
+        hint_text: "Escribe tu nombre"
+        multiline: False
+
+    Button:
+        text: "Saludar"
+        on_press: root.saludar()
+
+    Label:
+        id: etiqueta
+        text: "Esperando saludo..."
