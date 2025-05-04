@@ -9,11 +9,27 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.label import Label
 from kivy.lang import Builder
 from kivy.graphics import Color, Rectangle
+from kivy.uix.image import Image
+
+# import os
 
 
 # Builder.load_file('my.kv')
 
-class Principal(BoxLayout):
+class Principal(FloatLayout):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.add_widget(Image(
+            source= '../assets/img/login_fondo.png',
+            allow_stretch= True,
+            keep_ratio= False
+        ))
+
+        card = Card()
+        self.add_widget(card)
+
+
+class Card(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.orientation = 'vertical'
@@ -55,9 +71,6 @@ class Principal(BoxLayout):
     def update_rect(self, *args):
         self.rect.size = self.size
         self.rect.pos = self.pos
-
-class Card(GridLayout):
-    pass
 
 class MyApp(App):
     def build(self):
