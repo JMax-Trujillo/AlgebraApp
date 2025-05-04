@@ -11,10 +11,30 @@ from kivy.lang import Builder
 from kivy.graphics import Color, Rectangle
 from kivy.uix.image import Image
 
-# import os
+from kivy.core.window import Window
+import ctypes
+
+# Obtener tamaño de pantalla (en Windows)
+user32 = ctypes.windll.user32
+screen_width = user32.GetSystemMetrics(0)
+screen_height = user32.GetSystemMetrics(1)
+
+# Establecer tamaño en base a porcentaje
+ancho = int(screen_width * 0.8)   # 80% del ancho
+alto = int(screen_height * 0.775)  # 70% del alto
+
+Window.size = (ancho, alto)
+
+# (Opcional) Centrar ventana
+Window.left = (screen_width - ancho) // 2
+Window.top = (screen_height - alto) // 2
 
 
-# Builder.load_file('my.kv')
+# # import os
+# Window.size = (1100,800)
+Window.left = 0
+Window.top = 30
+# # Builder.load_file('my.kv')
 
 class Principal(FloatLayout):
     def __init__(self, **kwargs):
@@ -28,7 +48,6 @@ class Principal(FloatLayout):
         card = Card()
         self.add_widget(card)
 
-
 class Card(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -36,7 +55,7 @@ class Card(BoxLayout):
         self.padding = [10, 20, 10, 20]
         self.spacing = 5
         self.size_hint = (None, None)
-        self.size = (320, 250)
+        self.size = (300, 600)
         self.pos_hint={"center_x": 0.5, "center_y": 0.5}
 
         with self.canvas.before:
